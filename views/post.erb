@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+
+<body>
+  <h1><%= @title %></h1>
+  <h2><%= @message %></h2>
+
+  <form method="post" action="/post">
+    <input type="text" name="name" />
+    <input type="submit" value="送信" />
+  </form>
+
+  <div>
+    <h3>current users</h3>
+    <table>
+      <tr>
+        <td style="border: solid 1px">
+          <strong><pre style="background: #0000ff; color: white; font-size: 1.2em;">
+	    Id
+	  </pre></strong>
+	</td>
+        <td style="border: solid 1px">
+          <strong><pre style="background: #0000ff; color: white; font-size: 1.2em;">
+	     Name
+	  </pre></strong>
+	</td>
+        <td style="border: solid 1px">
+	</td>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+	  <td style="border: solid 1px">
+	    <%= user[:id] %>
+          </td>
+	  <td style="border: solid 1px">
+	    <%= user[:name] %>
+          </td>
+          <td style="border: solid 1px">
+            <form method="post" action="/post">
+	      <input type="hidden" name="id" value="<%= user[:id] %>"></hidden>
+              <input type="submit" value="削除" />
+            </form>
+	  </td>
+	</tr>
+      <% end %>
+    </table>
+  </div>
+</body>
+
+
+</html>
+

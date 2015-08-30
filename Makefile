@@ -1,0 +1,2 @@
+all:
+	ruby k.rb
